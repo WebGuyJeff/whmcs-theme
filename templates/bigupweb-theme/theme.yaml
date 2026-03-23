@@ -1,0 +1,13 @@
+# Bigup Web Theme Configuration File
+
+name: "Bigup Web Theme"
+description: "A custom theme adapted from Twenty One"
+author: "Jefferson Real jeff@webguyjeff.com"
+properties:
+  serverSidePagination: false # Defines client side will handle pagination
+provides:
+  bootstrap: 4.5.3
+  jquery: 1.12.4
+  fontawesome: 5.10.1
+config:
+  parent: twenty-one

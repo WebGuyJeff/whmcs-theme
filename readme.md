@@ -1,12 +1,18 @@
 # Theme files for my WHMCS install.
 
-### Build
+I got sick of trying to hack away on my live server, so I built this workflow with a local install of WHMCS for a proper dev solution.
 
-From the repo root, run `./bin/build.sh`
+### Dev Commands
+
+`npm run dev` - Browser sync with CSS injection and fast reload for JS and TPL upon file changes.
+`npm run build` - Builds CSS and JS into the production locations.
+`npm run build:min` - Builds Production-ready minified CSS and JS into the production locations.
+`npm run dist` - Package as a zip in /dist.
+
+_See package.json for more._
 
 ### Upstream WHMCS Theme Twenty one
 
-https://github.com/WHMCS/templates-twenty-one.git
+A copy of Tweny One is included in reference/ for easy comparison.
 
-**Fetch updates**
-git clone --depth=1 https://github.com/WHMCS/templates-twenty-one.git reference/twenty-one/
+`npm run getupstream` - Update the local reference repo.

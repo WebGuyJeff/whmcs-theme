@@ -1,0 +1,29 @@
+{
+	"name": "whmcs-theme",
+	"version": "1.0.0",
+	"private": true,
+	"description": "WHMCS theme build tools",
+	"scripts": {
+		"dev": "npm-run-all --parallel watch:css watch:js watch:browser watch:tpl",
+		"build": "npm run build:css && npm run build:js",
+		"build:min": "npm run build:css:min && npm run build:js:min",
+		"build:css": "sass src/css/custom.scss bigupweb-theme/css/custom.css",
+		"build:css:min": "sass src/css/custom.scss bigupweb-theme/css/custom.css --style=compressed",
+		"watch:css": "sass --watch src/css/custom.scss:bigupweb-theme/css/custom.css",
+		"build:js": "esbuild src/js/bigupweb.js --bundle --sourcemap=inline --outfile=bigupweb-theme/js/bigupweb.js",
+		"build:js:min": "esbuild src/js/bigupweb.js --bundle --minify --outfile=bigupweb-theme/js/bigupweb.js",
+		"watch:js": "esbuild src/js/bigupweb.js --bundle --outfile=bigupweb-theme/js/bigupweb.js --watch",
+		"watch:tpl": "chokidar \"bigupweb-theme/**/*.tpl\" -c \"rm -rf /var/www/whmcs/templates_c/*\"",
+		"watch:browser": "browser-sync start --config browser-sync.config.js",
+		"clean": "rm -rf bigupweb-theme/css/*.map bigupweb-theme/js/*.map",
+		"getupstream": "git clone --depth=1 https://github.com/WHMCS/templates-twenty-one.git \reference/twenty-one/",
+		"dist": "./bin/build.sh"
+	},
+	"devDependencies": {
+		"browser-sync": "^3.0.4",
+		"chokidar-cli": "^3.0.0",
+		"esbuild": "^0.20.0",
+		"npm-run-all": "^4.1.5",
+		"sass": "^1.70.0"
+	}
+}

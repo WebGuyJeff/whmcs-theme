@@ -2,7 +2,7 @@
 
 set -e
 
-OUTPUT="dist/whmcs-theme.zip"
+OUTPUT="dist/bigupweb-theme.zip"
 
 echo "Cleaning old build..."
 rm -f $OUTPUT
@@ -13,7 +13,7 @@ mkdir -p dist
 echo "Creating zip package..."
 
 zip -r $OUTPUT \
-  src/templates \
+  bigupweb-theme \
   -x "*.git*" \
   -x "*node_modules*" \
   -x "*.DS_Store"
